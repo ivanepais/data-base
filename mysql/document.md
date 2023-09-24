@@ -24,16 +24,113 @@
 	
 	OS: 
 
+		Instalar el paquete que proporciona el sistema operativo para el administrador DB (PostgreSQL, MySQL, SQLite3, etc.) 
 
+		Después de la instalación se inicia automáticamente, si no lo hace, ingresamos un comando para verificar su estado o iniciarlo manualmente. Tambien podemos habilitarlo para que se inicie con el arranque del sistema. 
+
+		Accedemos al administrador con su comando correspondiente y trabajamos desde aquí con la base de datos.  
+
+
+		Debian/Ubuntu: 
+
+			Actualizar paquetes y sistema: 
+
+			```
+				sudo apt update		
+				sudo apt upgrade		
+			```
+
+			Instalar administrador DB:
+
+			```
+				sudo apt install mysql-server
+
+			```	
+
+			Verificar estado del administrador DB
+
+			```
+				sudo systemctl status mysql
+
+			```
+
+			Inicio manual: 
+
+			```
+				sudo systemctl start mysql
+
+			```
+
+			Inicio con el sistema: 
+
+			```
+				sudo systemctl enable mysql
+
+			```
+
+			Acceder y trabajar con el administrador DB:
+
+			```
+				sudo mysql -u root -p
+
+			```
 
 
 	IDLE: 
+
+		Instalar y ejecutar MySQL directamente en un editor de código como Visual Studio Code o Sublime Text no es una práctica común, ya que estos editores están diseñados principalmente para la edición de código y no para la ejecución de servidores de bases de datos. 
+
+		Sin embargo, puedes utilizar estos editores de código para escribir y ejecutar consultas SQL y conectarte a servidores MySQL existentes.
+
+		Una vez que hayas instalado la extensión, deberás configurar la conexión a tu servidor MySQL. 
+
+		Esto generalmente implica proporcionar la dirección IP o el nombre del host del servidor, el puerto, el nombre de usuario y la contraseña.
+
+
+	DB GUI: 
+
+		Están enfocadas en dibujar diagramas, hacer declaraciones, diseñar, modelar, generar y administrar bases de datos visualmente. 
+
+		Pueden incluir un modelador de datos para crear modelos ER complejos, ingeniería directa e inversa, y también ofrece funciones clave para realizar tareas difíciles de gestión de cambios y documentación que normalmente requieren mucho tiempo y esfuerzo.
 
 
 
 
 || CHEAT SHEET 
+	
+	Son ejemplos de código aplicado usados para tener una referencia rápida y resumida que proporciona una lista de comandos y funciones esenciales de MySQL junto con sus sintaxis básicas. 
 
+	Estas hojas de trucos son útiles para los desarrolladores y administradores de bases de datos que trabajan con MySQL, ya que les permiten consultar rápidamente los comandos y funciones más comunes sin tener que buscar en la documentación completa cada vez que necesitan realizar una tarea específica.
+
+
+	Un "Cheat Sheet" de MySQL generalmente incluirá información sobre:
+
+   		Comandos SQL: 
+
+   			Incluyendo comandos para crear, modificar, consultar y eliminar bases de datos, tablas y registros.
+
+
+	    Funciones de MySQL: 
+
+	    	Una lista de funciones incorporadas de MySQL, como funciones matemáticas, de cadena, de fecha y hora, y funciones de agregación.
+
+
+	    Operadores: 
+
+	    	Los operadores utilizados en las consultas SQL, como operadores de comparación, operadores lógicos y operadores aritméticos.
+
+
+	    Instrucciones de control:
+
+	    	Incluyendo instrucciones como IF, CASE, y WHILE que se utilizan en procedimientos almacenados y desencadenadores (triggers).
+
+
+	    Instrucciones de administración: 
+
+	    	Instrucciones para gestionar usuarios, privilegios y la configuración del servidor MySQL.
+
+
+	Estos "Cheat Sheets" suelen estar diseñados de manera concisa y organizados de forma que sean fáciles de leer y comprender rápidamente. Pueden ser útiles tanto para principiantes que están aprendiendo MySQL como para profesionales con experiencia que desean tener a mano una referencia rápida de comandos y funciones comunes.
 
 
 
@@ -594,83 +691,84 @@
 
 		La condición '1'='1' siempre será verdadera, lo que significa que la consulta devolverá todos los registros de usuarios, permitiendo al atacante iniciar sesión sin conocer la contraseña correcta.
 
-		Para prevenir la Inyección SQL, es fundamental seguir buenas prácticas de seguridad:
+
+	Para prevenir la Inyección SQL, es fundamental seguir buenas prácticas de seguridad:
 
 
-		    Validación de Entrada: 
+	    Validación de Entrada: 
 
-		    	Valida y filtra cuidadosamente todas las entradas de usuario y otros datos antes de usarlos en consultas SQL.
+	    	Valida y filtra cuidadosamente todas las entradas de usuario y otros datos antes de usarlos en consultas SQL.
 
-		    	Utiliza funciones como "prepared statements" y "parameterized queries" para evitar la concatenación directa de datos de usuario en consultas SQL.
-
-
-		    Escape de Caracteres Especiales: 
-
-		    	Si no puedes utilizar "prepared statements", asegúrate de escapar (sanitizar) correctamente los caracteres especiales en las entradas de usuario para evitar que sean interpretados como instrucciones SQL.
+	    	Utiliza funciones como "prepared statements" y "parameterized queries" para evitar la concatenación directa de datos de usuario en consultas SQL.
 
 
-		    Principio de Menor Privilegio: 
+	    Escape de Caracteres Especiales: 
 
-		    	Asegúrate de que las cuentas de usuario y las conexiones de bases de datos tengan solo los permisos necesarios. 
-
-		    	No utilices cuentas de superusuario para operaciones normales.
+	    	Si no puedes utilizar "prepared statements", asegúrate de escapar (sanitizar) correctamente los caracteres especiales en las entradas de usuario para evitar que sean interpretados como instrucciones SQL.
 
 
-		    Actualizaciones y Parches: 
+	    Principio de Menor Privilegio: 
 
-		    	Mantén tu software y sistemas actualizados con los últimos parches de seguridad para mitigar vulnerabilidades conocidas.
+	    	Asegúrate de que las cuentas de usuario y las conexiones de bases de datos tengan solo los permisos necesarios. 
 
-
-		    Auditoría y Registros:
-
-		    	Registra y supervisa las actividades de la base de datos para detectar cualquier actividad sospechosa o intentos de Inyección SQL.
+	    	No utilices cuentas de superusuario para operaciones normales.
 
 
-		Situaciones de entrada de datos no validadas: 	
+	    Actualizaciones y Parches: 
 
-			Formularios Web: 
-
-				Las aplicaciones web a menudo permiten a los usuarios enviar datos a través de formularios en línea.
-
-				Si no se aplican medidas de validación en el lado del servidor para asegurarse de que los datos ingresados sean seguros y cumplan con las expectativas, la entrada del usuario podría ser vulnerable a la Inyección SQL.
-
-				Esto es especialmente cierto cuando se realizan consultas SQL directamente con los datos proporcionados por el usuario.
+	    	Mantén tu software y sistemas actualizados con los últimos parches de seguridad para mitigar vulnerabilidades conocidas.
 
 
-		    URLs y Parámetros de Consulta: 
+	    Auditoría y Registros:
 
-		    	Algunas aplicaciones utilizan información proporcionada por el usuario en URLs o parámetros de consulta. 
-
-		    	Si esta información no se valida adecuadamente, un atacante podría manipular los parámetros de la URL para ejecutar ataques de Inyección SQL.
+	    	Registra y supervisa las actividades de la base de datos para detectar cualquier actividad sospechosa o intentos de Inyección SQL.
 
 
-		    Entrada de Datos de Forma Libre: 
+	Situaciones de entrada de datos no validadas: 	
 
-		    	Cuando los usuarios pueden ingresar datos de forma libre en campos de texto o áreas de comentarios, es importante validar y escapar adecuadamente los datos antes de almacenarlos o mostrarlos. 
+		Formularios Web: 
 
-		    	Los ataques de Inyección SQL pueden ocurrir si el usuario introduce intencionadamente comandos maliciosos.
+			Las aplicaciones web a menudo permiten a los usuarios enviar datos a través de formularios en línea.
 
+			Si no se aplican medidas de validación en el lado del servidor para asegurarse de que los datos ingresados sean seguros y cumplan con las expectativas, la entrada del usuario podría ser vulnerable a la Inyección SQL.
 
-		    Autenticación y Autorización: 	
-
-		    	Los sistemas de autenticación y autorización deben validar las credenciales de los usuarios de manera segura. 
-
-		    	Si no se validan adecuadamente, los atacantes pueden aprovechar las debilidades para eludir la autenticación o ganar acceso no autorizado.
+			Esto es especialmente cierto cuando se realizan consultas SQL directamente con los datos proporcionados por el usuario.
 
 
-		    Servicios Web y APIs: 
+	    URLs y Parámetros de Consulta: 
 
-		    	Los servicios web y las APIs pueden ser puntos de entrada para ataques de Inyección SQL si no validan y filtran correctamente las solicitudes y parámetros proporcionados por el usuario.
+	    	Algunas aplicaciones utilizan información proporcionada por el usuario en URLs o parámetros de consulta. 
 
-
-		    Archivos Adjuntos: 
-
-		    	Si una aplicación permite a los usuarios cargar archivos, es importante validar y filtrar los tipos de archivos permitidos para evitar que se carguen archivos maliciosos que puedan explotar vulnerabilidades de Inyección SQL.
+	    	Si esta información no se valida adecuadamente, un atacante podría manipular los parámetros de la URL para ejecutar ataques de Inyección SQL.
 
 
-		    Conexiones de Bases de Datos Inseguras: 
+	    Entrada de Datos de Forma Libre: 
 
-		    	Si una aplicación se conecta a la base de datos utilizando cuentas de usuario con privilegios excesivos (como el acceso de escritura completa), un atacante podría explotar vulnerabilidades de Inyección SQL para modificar, eliminar o acceder a datos sensibles.
+	    	Cuando los usuarios pueden ingresar datos de forma libre en campos de texto o áreas de comentarios, es importante validar y escapar adecuadamente los datos antes de almacenarlos o mostrarlos. 
+
+	    	Los ataques de Inyección SQL pueden ocurrir si el usuario introduce intencionadamente comandos maliciosos.
+
+
+	    Autenticación y Autorización: 	
+
+	    	Los sistemas de autenticación y autorización deben validar las credenciales de los usuarios de manera segura. 
+
+	    	Si no se validan adecuadamente, los atacantes pueden aprovechar las debilidades para eludir la autenticación o ganar acceso no autorizado.
+
+
+	    Servicios Web y APIs: 
+
+	    	Los servicios web y las APIs pueden ser puntos de entrada para ataques de Inyección SQL si no validan y filtran correctamente las solicitudes y parámetros proporcionados por el usuario.
+
+
+	    Archivos Adjuntos: 
+
+	    	Si una aplicación permite a los usuarios cargar archivos, es importante validar y filtrar los tipos de archivos permitidos para evitar que se carguen archivos maliciosos que puedan explotar vulnerabilidades de Inyección SQL.
+
+
+	    Conexiones de Bases de Datos Inseguras: 
+
+	    	Si una aplicación se conecta a la base de datos utilizando cuentas de usuario con privilegios excesivos (como el acceso de escritura completa), un atacante podría explotar vulnerabilidades de Inyección SQL para modificar, eliminar o acceder a datos sensibles.
 
 
 	Validar y filtrar adecuadamente la entrada del usuario:
@@ -769,6 +867,559 @@
 || CHEAT SHEET 
 
 
+    Comandos SQL: 
+
+    	Incluyendo comandos para crear, modificar, consultar y eliminar bases de datos, tablas y registros.
+
+
+    Funciones de MySQL: 
+
+    	Una lista de funciones incorporadas de MySQL, como funciones matemáticas, de cadena, de fecha y hora, y funciones de agregación.
+
+
+    Operadores: 
+
+    	Los operadores utilizados en las consultas SQL, como operadores de comparación, operadores lógicos y operadores aritméticos.
+
+
+    Instrucciones de control:
+
+    	Incluyendo instrucciones como IF, CASE, y WHILE que se utilizan en procedimientos almacenados y desencadenadores (triggers).
+
+
+    Instrucciones de administración:
+
+    	Instrucciones para gestionar usuarios, privilegios y la configuración del servidor MySQL.
+
+
+	Estos "Cheat Sheets" suelen estar diseñados de manera concisa y organizados de forma que sean fáciles de leer y comprender rápidamente. 
+
+	Pueden ser útiles tanto para principiantes que están aprendiendo MySQL como para profesionales con experiencia que desean tener a mano una referencia rápida de comandos y funciones comunes.
+
+	Puedes encontrar "Cheat Sheets" de MySQL en línea o crear uno personalizado que se adapte a tus necesidades específicas. 
+
+	Es una herramienta valiosa para agilizar el trabajo con MySQL y evitar errores al escribir comandos y consultas.
+
 
 	
-||
+|| TIPOS DE INSTRUCCIONES
+	
+
+	DDL (Data Definition Language - Lenguaje de Definición de Datos):
+
+	    CREATE DATABASE: 
+
+	    	Crea una nueva base de datos.
+
+
+	    DROP DATABASE: 
+
+	    	Elimina una base de datos existente.
+
+
+	    CREATE TABLE: 
+
+	    	Crea una nueva tabla en una base de datos.
+
+
+	    ALTER TABLE: 
+
+	    	Modifica la estructura de una tabla existente.
+
+
+	    DROP TABLE: 
+
+	    	Elimina una tabla existente.
+
+
+	DML (Data Manipulation Language - Lenguaje de Manipulación de Datos):
+
+	    INSERT INTO: 
+
+	    	Agrega nuevos registros a una tabla.
+
+
+	    SELECT: 
+
+	    	Recupera datos de una o más tablas.
+
+
+	    UPDATE: 
+
+	    	Modifica datos en una tabla.
+
+
+	    DELETE FROM: 
+
+	    	Elimina registros de una tabla.
+
+
+	3. DQL (Data Query Language - Lenguaje de Consulta de Datos):
+
+	    SELECT: 
+
+	    	Consulta datos de una o más tablas utilizando cláusulas como WHERE, ORDER BY, GROUP BY, etc.
+
+
+	    DISTINCT: 
+
+	    	Recupera valores únicos de una columna.
+
+
+	    JOIN: 
+
+	    	Combina datos de dos o más tablas basándose en una condición especificada.
+
+
+	    UNION: 
+
+	    	Combina resultados de dos o más consultas en un solo conjunto de resultados.
+
+
+	4. DCL (Data Control Language - Lenguaje de Control de Datos):
+
+	    GRANT: 
+
+	    	Concede permisos a usuarios o roles para acceder a objetos de base de datos.
+
+
+	    REVOKE: 
+
+	    	Revoca permisos previamente otorgados.
+
+
+	5. TCL (Transaction Control Language - Lenguaje de Control de Transacciones):
+
+	    COMMIT: 
+
+	    	Confirma una transacción y guarda los cambios realizados.
+
+
+	    ROLLBACK: 
+
+	    	Revierte una transacción no confirmada y deshace los cambios.
+
+
+	    SAVEPOINT: 
+
+	    	Establece un punto de guardado dentro de una transacción.
+
+
+	Otros Comandos:
+
+	    USE: 
+
+	    	Selecciona una base de datos específica para trabajar en ella.
+
+	    SHOW:
+
+	    	Muestra información sobre bases de datos, tablas o columnas.
+
+
+	    DESCRIBE o DESC: 
+
+	    	Proporciona información sobre la estructura de una tabla.
+
+
+	Instrucciones Condicionales:
+
+	    IF: 
+
+	    	Permite realizar una evaluación condicional y devuelve un valor en función del resultado.
+
+
+	    CASE: 
+
+	    	Realiza evaluaciones condicionales múltiples y devuelve un valor en función de la primera condición verdadera.
+
+
+	    CASE WHEN: 
+
+	    	Es una forma más específica de la instrucción CASE que permite definir condiciones y resultados para cada caso.
+
+
+	Instrucciones de Iteración:
+
+	    WHILE: 
+
+	    	Crea un bucle que se ejecuta mientras se cumple una condición especificada.
+
+
+	    REPEAT: 
+
+	    	Crea un bucle que se ejecuta hasta que se cumple una condición especificada.
+
+
+	    LOOP: 
+
+	    	Define un bucle que se ejecuta indefinidamente hasta que se alcance una condición de salida.
+
+
+	Instrucciones de Manejo de Errores:
+
+	    SIGNAL: 
+
+	    	Genera un error personalizado con un mensaje específico.
+
+
+	    RESIGNAL: 
+
+	    	Vuelve a lanzar un error que ha sido manejado previamente.
+
+
+	    GET DIAGNOSTICS: 
+
+	    	Recupera información de diagnóstico después de que se ha producido un error.
+
+
+	Instrucciones de Control de Transacciones:
+
+	    START TRANSACTION: 
+
+	    	Inicia una transacción explícita.
+
+
+	    COMMIT: 
+
+	    	Confirma una transacción y guarda los cambios realizados.
+
+
+	    ROLLBACK: 
+
+	    	Revierte una transacción no confirmada y deshace los cambios.
+
+
+	    SAVEPOINT: 
+
+	    	Establece un punto de guardado dentro de una transacción.
+
+
+	Instrucciones de Control de Flujo:
+
+	    LEAVE: 
+
+	    	Sale de un bucle etiquetado.
+
+
+	    ITERATE: 
+
+	    	Salta a la siguiente iteración de un bucle etiquetado.
+
+
+	    REPEAT: 
+
+	    	Repite un bucle etiquetado.
+
+
+	Instrucciones de Control de Código de Bloques:
+
+	    BEGIN: 
+
+	    	Inicia un bloque de código.
+
+
+	    END: 
+
+	    	Finaliza un bloque de código.
+
+
+	    DECLARE: 
+
+	    	Declara una variable local dentro de un bloque de código.
+
+
+	Instrucciones de Control de Manejo de Errores:
+
+	    DECLARE HANDLER: 
+
+	    	Define un manejador de errores personalizado para un tipo específico de error.
+
+
+	    RESIGNAL: 
+
+	    	Vuelve a lanzar un error que ha sido manejado previamente.
+
+
+
+|| OPERADORES
+
+
+	Operadores Aritméticos:
+
+	    + (Suma): 
+
+	    	Suma dos valores.
+
+
+	    - (Resta): 
+
+	    	Resta el segundo valor del primero.
+
+
+	    * (Multiplicación):
+
+	    	Multiplica dos valores.
+
+
+	    / (División): 	
+
+	    	Divide el primer valor por el segundo.
+
+
+	    % (Módulo): 
+
+	    	Devuelve el resto de la división del primer valor por el segundo.
+
+
+	Operadores de Comparación:
+
+	    = (Igual a): 
+
+	    	Compara si dos valores son iguales.
+
+
+	    != o <> (No igual a): 
+
+	    	Compara si dos valores no son iguales.
+
+
+	    < (Menor que): 
+
+	    	Compara si el primer valor es menor que el segundo.
+
+
+	    > (Mayor que): 
+
+	    	Compara si el primer valor es mayor que el segundo.
+
+
+	    <= (Menor o igual que): 
+
+	    	Compara si el primer valor es menor o igual que el segundo.
+
+
+	    >= (Mayor o igual que):
+
+	    	Compara si el primer valor es mayor o igual que el segundo.
+
+
+	Operadores Lógicos:
+
+	    AND (Y): 
+
+	    	Combina dos condiciones y devuelve verdadero si ambas son verdaderas.
+
+
+	    OR (O): 
+
+	    	Combina dos condiciones y devuelve verdadero si al menos una es verdadera.
+
+
+	    NOT (NO): 
+
+	    	Invierte el valor de una condición.
+
+
+	Operadores de Concatenación de Cadenas:
+
+	    CONCAT() (Concatenación):
+
+	    	Combina dos o más cadenas en una sola.
+
+
+	Operadores de Asignación:
+
+	    = (Asignación): 
+
+	    	Asigna un valor a una variable o columna.
+
+
+	Operadores de Membresía:
+
+	    IN (En): 
+
+	    	Verifica si un valor está presente en un conjunto de valores.
+
+
+	    NOT IN (No en): 
+
+	    	Verifica si un valor no está presente en un conjunto de valores.
+
+
+	Operador de Concatenación de Columnas:
+
+	    || (Doble barra vertical):
+
+	    	Concatena columnas en algunas versiones de MySQL.
+
+
+	Operadores de Expresión Regular:
+
+	    REGEXP o RLIKE (Coincide con una expresión regular):
+
+	    	Compara un valor con una expresión regular.
+
+
+	Operador de Espacio de Nombres de Columna:
+
+	    . (Punto): 
+
+	    	Utilizado para hacer referencia a una columna de una tabla en consultas SQL.
+
+
+
+|| FUNCIONES INCORPORADAS
+	
+	    CONCAT(): 
+
+	    	Combina dos o más cadenas.
+
+
+	    LENGTH(): 
+
+	    	Devuelve la longitud de una cadena.
+
+
+	    SUBSTRING(): 
+
+	    	Extrae una parte de una cadena.
+
+
+	    UPPER(): 
+
+	    	Convierte una cadena a mayúsculas.
+
+
+	    LOWER(): 	
+
+	    	Convierte una cadena a minúsculas.
+
+
+	    TRIM(): 
+
+	    	Elimina espacios en blanco al principio y al final de una cadena.
+
+
+	    REPLACE(): 
+
+	    	Reemplaza parte de una cadena con otra.
+
+
+	Funciones Numéricas (Numeric Functions):
+
+	    SUM(): 
+
+	    	Calcula la suma de valores numéricos.
+
+
+	    AVG(): 
+
+	    	Calcula el promedio de valores numéricos.
+
+
+	    MAX(): 
+
+	    	Devuelve el valor máximo en un conjunto de valores.
+
+
+	    MIN(): 
+
+	    	Devuelve el valor mínimo en un conjunto de valores.
+
+
+	    ROUND(): 
+
+	    	Redondea un número.
+
+
+	    ABS(): 
+
+	    	Devuelve el valor absoluto de un número.
+
+
+	Funciones de Fecha y Hora (Date and Time Functions):
+
+	    NOW(): 
+
+	    	Devuelve la fecha y hora actuales.
+
+
+	    CURDATE(): 
+
+	    	Devuelve la fecha actual.
+
+
+	    CURTIME(): 
+
+	    	Devuelve la hora actual.
+
+
+	    DATE(): 
+
+	    	Extrae la parte de fecha de una fecha y hora.
+
+
+	    TIME(): 
+
+	    	Extrae la parte de hora de una fecha y hora.
+
+
+	    DATEDIFF(): 
+
+	    	Calcula la diferencia entre dos fechas.
+
+
+	    DATE_ADD(): 
+
+	    	Agrega una cantidad de tiempo a una fecha.
+
+
+	Funciones Matemáticas (Math Functions):
+
+	    SQRT(): 
+
+	    	Calcula la raíz cuadrada de un número.
+
+
+	    POW(): 
+
+	    	Eleva un número a una potencia.
+
+
+	    RAND(): 
+
+	    	Genera un número decimal aleatorio.
+
+
+	    CEIL(): 
+
+	    	Redondea hacia arriba un número decimal.
+
+
+	    FLOOR(): 
+
+	    	Redondea hacia abajo un número decimal.
+
+
+	Funciones de Conversión de Tipos (Type Conversion Functions):
+
+	    CAST(): 
+
+	    	Convierte un valor a un tipo de datos específico.
+
+
+	    CONVERT(): 
+
+	    	Convierte un valor a un tipo de datos específico.
+
+
+	Funciones de Control de Flujo (Control Flow Functions):
+
+	    IF(): 
+
+	    	Realiza una evaluación condicional y devuelve un valor en función del resultado.
+
+
+	    CASE WHEN: 
+
+	    	Realiza evaluaciones condicionales múltiples y devuelve un valor en función de la primera condición verdadera.
