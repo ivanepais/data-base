@@ -3,20 +3,377 @@
 
 || HISTORIA
 
+	Las bases de datos tienen sus raíces en la necesidad de almacenar y gestionar información de manera eficiente. 
 
+	Antes de la computadora digital moderna, la información se almacenaba en papel, tarjetas perforadas u otros medios físicos. 
+
+	Sin embargo, con el advenimiento de las computadoras en la década de 1940, se empezaron a desarrollar sistemas para almacenar datos de manera electrónica. 
+
+	Uno de los primeros sistemas de bases de datos fue el modelo de red, seguido por el modelo jerárquico. 
+
+	Estos modelos eran complejos y rígidos, lo que llevó al desarrollo del modelo relacional en la década de 1970 por Edgar Codd. 
+
+	El modelo relacional se convirtió en la base de la mayoría de los sistemas de bases de datos modernos.
+
+
+	Propósito:
+		
+		El propósito principal de una base de datos es almacenar datos de manera estructurada, organizada y accesible para su posterior recuperación y análisis. 
+
+
+	    Almacenamiento de datos:
+
+	    	Permiten almacenar grandes cantidades de datos de manera eficiente, evitando la redundancia y asegurando la integridad de los datos.
+
+
+	    Recuperación de datos: 
+
+	    	Facilitan la búsqueda y recuperación de información específica de manera rápida y precisa.
+
+
+	    Gestión de datos: 
+
+	    	Proporcionan herramientas para administrar y actualizar los datos de manera eficiente.
+
+
+	    Análisis de datos: 
+
+	    	Permiten realizar consultas y análisis complejos de los datos almacenados, lo que es esencial en la toma de decisiones empresariales.
+
+
+	    Compartir datos: 
+
+	    	Facilitan el acceso a los datos por parte de múltiples usuarios o aplicaciones de manera segura.
+
+
+	Actualidad:
+
+		En la actualidad, las bases de datos desempeñan un papel fundamental en una amplia variedad de aplicaciones y sectores. 
+
+		Con el avance de la tecnología, han surgido diversos tipos de bases de datos, como bases de datos relacionales, bases de datos NoSQL, bases de datos en la nube y bases de datos distribuidas, para adaptarse a diferentes necesidades y casos de uso. 
+
+		Además, las bases de datos son esenciales en la gestión de grandes volúmenes de datos en áreas como la inteligencia empresarial, la analítica de datos, la gestión de la cadena de suministro, la atención médica, las redes sociales y más. 
+
+		La seguridad de los datos y el cumplimiento de regulaciones como el Reglamento General de Protección de Datos (GDPR) también son preocupaciones importantes en la actualidad.
+
+
+	Las bases de datos tienen un origen en la evolución de la tecnología de la información, tienen múltiples propósitos y continúan siendo una parte integral de la infraestructura tecnológica en la actualidad, permitiendo a las organizaciones gestionar y aprovechar eficazmente sus datos.
+
+
+
+|| Tipos de Bases de Datos
+	
+	Relacional: 	
+
+		Es un tipo de sistema de gestión de bases de datos (DBMS) que utiliza una estructura de datos tabular organizada en filas y columnas para almacenar y gestionar la información. 
+
+		En una base de datos relacional, los datos se organizan en tablas o relaciones, y las relaciones entre las tablas se establecen mediante claves primarias y claves foráneas.
+
+		
+		Tablas: 
+
+			Los datos se almacenan en tablas, donde cada tabla representa una entidad o concepto específico. 
+
+			Cada fila de la tabla corresponde a una instancia o registro individual de esa entidad, y cada columna representa un atributo o campo de datos.
+
+
+	    Claves primarias: 
+
+	    	Cada tabla tiene una clave primaria que garantiza la unicidad de cada registro en la tabla. 
+
+	    	La clave primaria suele ser una columna o combinación de columnas que actúa como identificador único.
+
+
+	    Claves foráneas: 
+
+	    	Las relaciones entre las tablas se establecen mediante claves foráneas, que son columnas que hacen referencia a la clave primaria de otra tabla. 
+
+	    	Esto permite relacionar datos entre tablas y crear consultas que recuperen información de múltiples tablas.
+
+
+	    SQL: 
+
+	    	Para administrar y consultar una base de datos relacional, se utiliza el lenguaje de consulta estructurado (SQL), que proporciona comandos para crear, consultar, actualizar y eliminar datos de las tablas.
+
+
+	Bases de Datos NoSQL: 
+
+		Estas bases de datos están diseñadas para gestionar datos no estructurados o semiestructurados, como documentos, gráficos, datos de series temporales y más. 
+
+		No siguen el modelo relacional y se utilizan en aplicaciones donde la escalabilidad y la flexibilidad son más importantes que la integridad de los datos.
+
+		Ejemplos incluyen MongoDB, Cassandra y Redis.
+
+
+    Bases de Datos Orientadas a Objetos:
+
+    	Almacenan datos en forma de objetos, lo que es especialmente útil en programación orientada a objetos (OO). 
+
+    	Los datos se almacenan en objetos con atributos y métodos, y las relaciones se establecen a través de la herencia y la composición. Ejemplos incluyen db4o y ObjectDB.
+
+
+    Bases de Datos Jerárquicas: 
+
+    	Estas bases de datos utilizan una estructura de árbol o jerarquía para organizar los datos. 
+
+    	Cada registro tiene uno o más registros secundarios asociados, lo que los hace adecuados para aplicaciones como sistemas de gestión de información geoespacial (GIS). 
+
+    	Ejemplos incluyen IBM Information Management System (IMS).
+
+
+    Bases de Datos de Grafos: 
+
+    	Diseñadas para representar y almacenar datos en forma de grafos, donde los nodos representan entidades y las relaciones se representan mediante bordes o aristas. 
+
+    	Son útiles para aplicaciones que requieren modelar y consultar relaciones complejas. 
+
+    	Ejemplos incluyen Neo4j y Amazon Neptune.
+
+
+    Bases de Datos Columnares: 
+
+    	Están optimizadas para consultas analíticas y almacenan datos en columnas en lugar de filas. 
+
+    	Esto acelera las consultas que requieren agregación y análisis de grandes conjuntos de datos.
+
+    	Ejemplos incluyen Apache Cassandra y Google Bigtable.
+
+
+    La elección del tipo de base de datos depende de los requisitos específicos de una aplicación, como la estructura de datos, la escalabilidad, el rendimiento y la complejidad de las consultas. 
+
+    Cada tipo de base de datos tiene sus ventajas y desventajas, y la elección adecuada depende del contexto y los objetivos del proyecto.
+
+
+
+|| Base de Datos Relacional Básica
+
+
+	Nombre DB: 
+
+		Define la necesidad o propósito de la base de datos. 
+
+		Puede ser que represente una tabla con datos almacenados de contactos/clientes, etc.
+
+
+	Columnas: 
+
+		Cada columna agrupa datos específicos que son individuales.
+
+		Representan los detalles para el propósito de la DB. 
+
+
+	Filas: 
+
+		Datos específicos que se relacionan con las columnas. 
+
+		Representa una entrada que cumple con el propósito de la DB (ej. contactos/clientes, etc). 
+
+
+	Celda: 
+
+		Datos individuales que cumplen los requesitos de cada columna.  
+
+
+	Ejemplo: 
+
+		Lista de contactos telefónicos que deseas administrar en una base de datos simple. 
+
+		En este caso, cada entrada en la lista de contactos es un registro en la base de datos.
+
+
+		id 	Nombre 	Teléfono 	Correo
+		1 	Juan 	555-1234 	juan@
+		2 	María  	555-3435 	Maria@
+		3 	Carlos 	555-3536 	Carlos@
+
+
+		Podemos agregar, editar, eliminar y buscar contactos en esta base de datos, y es útil para mantener organizada tu lista de contactos.
+
+		Se pueden crear bases de datos más grandes, complejas con varias tablas y relaciones entre ellas.  
+
+
+
+|| MySQL 
+	
+	Es un sistema de gestión de bases de datos (DBMS) de código abierto que tiene sus raíces en el trabajo desarrollado por los suecos David Axmark y Michael Widenius y el finlandés Monty Widenius a mediados de la década de 1990. 
+
+	Inicialmente, el sistema se llamaba "MySQL" en honor a la hija de uno de los fundadores, llamada My. 
+
+	En 1995, se lanzó la primera versión pública de MySQL, y desde entonces ha experimentado un desarrollo constante y una amplia adopción en la comunidad de código abierto y en la industria.
+
+
+	Propósito:
+		
+		El propósito principal de MySQL es servir como un sistema de gestión de bases de datos relacional. 
+
+
+    Almacenamiento de datos: 
+
+    	MySQL permite almacenar datos de manera estructurada en tablas relacionales.
+
+
+    Velocidad y rendimiento: 
+
+    	Está diseñado para ofrecer un rendimiento eficiente y rápido en la recuperación y manipulación de datos.
+
+
+    Escalabilidad: 
+
+    	Puede manejar aplicaciones desde pequeñas a grandes, y se utiliza comúnmente en aplicaciones web y empresariales.
+
+
+    Amplia compatibilidad: 
+
+    	MySQL es compatible con varios lenguajes de programación y sistemas operativos, lo que facilita su integración en diversas aplicaciones.
+
+
+    Seguridad: 
+
+    	Ofrece características de seguridad, como la autenticación de usuarios y la capacidad de asignar permisos a nivel de usuario y tabla.
+
+
+	Actualidad:
+		
+		En la actualidad, MySQL sigue siendo una de las bases de datos más populares y ampliamente utilizadas en todo el mundo. 
+
+		A lo largo de los años, ha evolucionado y ha sido adquirido por diferentes empresas, incluyendo Sun Microsystems (adquirida por Oracle Corporation en 2010), lo que llevó a la creación de MySQL Community Edition (versión de código abierto) y MySQL Enterprise Edition (versión comercial con características adicionales y soporte).
+
+
+	MySQL es ampliamente utilizado en aplicaciones web, sistemas de gestión de contenido (como WordPress y Joomla), sistemas de comercio electrónico, aplicaciones empresariales y más. 
+
+	Además, se ha mantenido relevante en la era de la computación en la nube, ya que es una de las bases de datos preferidas en servicios de nube como Amazon RDS, Google Cloud SQL y Azure Database for MySQL.	
 
 
 
 || VERSIONES 
+	
+	MySQL 1.0: 
+
+		Esta fue la primera versión de MySQL y se lanzó en mayo de 1995.
 
 
+    MySQL 3.0: 
+
+    	Esta versión introdujo la capacidad de realizar consultas SQL, lo que marcó un gran avance en la funcionalidad de MySQL. Se lanzó en octubre de 1999.
+
+
+    MySQL 4.0: 
+
+    	Lanzada en noviembre de 2000, esta versión agregó características como subconsultas y UNION.
+
+
+    MySQL 4.1: 
+
+    	Introdujo características importantes como las transacciones, claves foráneas y procedimientos almacenados. Fue lanzada en octubre de 2003.
+
+
+    MySQL 5.0: 
+
+    	Lanzada en octubre de 2005, esta versión agregó soporte para disparadores (triggers) y vistas, lo que mejoró significativamente la capacidad de MySQL para manejar operaciones más complejas.
+
+
+    MySQL 5.1: 
+
+    	Esta versión, lanzada en noviembre de 2008, continuó mejorando la estabilidad y las características de MySQL.
+
+
+    MySQL 5.5: 
+
+    	Lanzada en diciembre de 2010, esta versión mejoró el rendimiento y la escalabilidad, y agregó soporte para particionamiento de tablas.
+
+
+    MySQL 5.6: 
+
+    	Lanzada en febrero de 2013, incluyó mejoras en la replicación, la seguridad y la optimización de consultas.
+
+
+    MySQL 5.7: 
+
+    	Lanzada en octubre de 2015, esta versión introdujo mejoras en la seguridad, como el modo estricto, así como el soporte para JSON y la replicación multinivel.
+
+
+    MySQL 8.0: 
+
+    	Lanzada en abril de 2018, fue una versión importante que incluyó características como el motor de almacenamiento InnoDB mejorado, el soporte para caracteres UTF8MB4 y la autenticación mejorada.
 
 
 
 || CARACTERÍSTICAS
 
+	MySQL es un sistema de gestión de bases de datos relacional (RDBMS) de código abierto ampliamente utilizado en todo el mundo. 
+
+	Ofrece una serie de características y ventajas que lo hacen popular entre desarrolladores y organizaciones. 
 
 
+    Rendimiento Superior: 
+
+    	MySQL está diseñado para ser rápido y eficiente. 
+
+    	Ofrece un rendimiento óptimo en operaciones de lectura y escritura, lo que lo hace adecuado para aplicaciones con alta carga de trabajo y tráfico intenso.
+
+
+    Escalabilidad: 
+
+    	MySQL es altamente escalable y puede manejar grandes conjuntos de datos y aplicaciones de alto tráfico. 
+
+    	Puede implementarse en arquitecturas de escalabilidad vertical y horizontal.
+
+
+    Disponibilidad y Alta Disponibilidad:
+
+    	MySQL admite configuraciones de alta disponibilidad utilizando tecnologías como la replicación, el agrupamiento (clustering) y la recuperación ante fallos, lo que garantiza que los sistemas estén disponibles incluso en situaciones de fallos.
+
+
+    Seguridad: 
+
+    	MySQL ofrece características de seguridad sólidas, incluida la autenticación de usuarios, permisos y cifrado de datos. También es compatible con el protocolo SSL/TLS para conexiones seguras.
+
+
+    Facilidad de Uso: 
+
+    	MySQL es conocido por su facilidad de instalación y configuración. Además, ofrece interfaces de usuario gráficas como MySQL Workbench que simplifican la administración de bases de datos.
+
+
+    Compatibilidad: 
+
+    	MySQL es compatible con una variedad de lenguajes de programación y plataformas, lo que facilita su integración en aplicaciones y sistemas existentes.
+
+
+    Amplia Comunidad y Soporte: 
+
+    	MySQL tiene una gran comunidad de usuarios y desarrolladores que proporcionan soporte y recursos, incluida una abundante documentación en línea. 
+
+    	También existen versiones comerciales de MySQL con soporte profesional.
+
+
+    Transacciones ACID: 
+
+    	MySQL es compatible con transacciones ACID (Atomicidad, Consistencia, Aislamiento y Durabilidad), lo que garantiza la integridad de los datos en aplicaciones que requieren operaciones seguras de base de datos.
+
+
+    Motor de Almacenamiento Pluggable:
+
+    	MySQL admite varios motores de almacenamiento, como InnoDB (predeterminado), MyISAM y otros, que ofrecen características y funcionalidades específicas para diferentes necesidades.
+
+
+    Replicación:
+
+    	MySQL admite la replicación, lo que permite crear copias exactas de una base de datos en servidores secundarios para mejorar la redundancia, la escalabilidad y la distribución de la carga.
+
+
+    Georreplicación: 
+
+    	MySQL 8.0 y versiones posteriores admiten la georreplicación, que permite replicar datos a través de múltiples ubicaciones geográficas para la recuperación ante desastres y la mejora del rendimiento.
+
+
+    Soporte para JSON: 
+
+    	MySQL 5.7 y versiones posteriores incorporan soporte nativo para el formato JSON, lo que facilita el almacenamiento y la consulta de datos JSON en la base de datos.
+
+
+    Motor de Almacenamiento Memcached: 
+
+    	MySQL ofrece un motor de almacenamiento Memcached que permite acelerar la lectura de datos almacenando en caché resultados de consultas y datos frecuentemente utilizados en la memoria.
 
 
 
@@ -95,10 +452,9 @@
 
 
 
-
 || CHEAT SHEET 
 	
-	Son ejemplos de código aplicado usados para tener una referencia rápida y resumida que proporciona una lista de comandos y funciones esenciales de MySQL junto con sus sintaxis básicas. 
+	Son ejemplos de código aplicado, usados para tener una referencia rápida y resumida que proporciona una lista de comandos y funciones esenciales de MySQL junto con sus sintaxis básicas. 
 
 	Estas hojas de trucos son útiles para los desarrolladores y administradores de bases de datos que trabajan con MySQL, ya que les permiten consultar rápidamente los comandos y funciones más comunes sin tener que buscar en la documentación completa cada vez que necesitan realizar una tarea específica.
 
